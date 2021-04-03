@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    var rollno = "S20180010154";
+    function httpGet(theUrl, callback) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                var resp = JSON.parse(this.responseText);
+                document.getElementById("roll_disp").innerText = resp['rollno'];
+            }
+        }
+        xmlHttp.open("GET", theUrl + '/' + rollno, true); // true for asynchronous 
+        xmlHttp.send(null);
+    }
+
+    </script>
+</head>
+
+<body id='roll_disp' onload='httpGet("http://192.168.0.104:5000/stud_data")'>
+</body>
+
+</html>
