@@ -11,5 +11,5 @@ var server = app.listen(5000, function () {
     var host = server.address().address
     var port = server.address().port
 
-    console.log("Node Server listening at http://%s:%s", "192.168.0.104", port)
+    console.log("Node Server listening at http://%s:%s", "52.151.217.157", port)
 })
